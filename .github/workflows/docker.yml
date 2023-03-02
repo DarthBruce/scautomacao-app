@@ -48,7 +48,6 @@ jobs:
         with:
           context: .
           platforms: linux/amd64,linux/arm64
-          builder: docker
           tags: ghrc.io/darthbruce/scautomacao-app:latest
           push: true
           registry: ghrc.io
