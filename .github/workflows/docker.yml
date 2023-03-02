@@ -47,8 +47,9 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
+          file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
-          tags: ghrc.io/darthbruce/scautomacao-app:latest
           push: true
-          registry: ghrc.io
-          repository: darthbruce/scautomacao-app
+          tags: docker.io/darthbruce/scautomacao-monitor:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
