@@ -41,15 +41,15 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.API_KEY_1 }}
+          password: ${{ secrets.MY_GITHUB_TOKEN }}
 
       - name: Build and push latest
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
+          builder: docker
+          tags: ghrc.io/darthbruce/scautomacao-app:latest
           push: true
-          tags: ghcr.io/darthbruce/scautomacao-app:latest
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          registry: ghrc.io
+          repository: darthbruce/scautomacao-app
